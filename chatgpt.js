@@ -5,3 +5,28 @@ const apiKey = process.env.apiKey1
 // run your code with node chatgpt.js
 // add your apiKey to .env from gChat
 // Follow the checklist on the Performance Assessment Google Doc
+
+let requestURL = "https://api.openai.com/v1/responses"
+
+async function createResponse(responseData){
+const options = {
+method: `POST`,
+headers: {
+Authorization: `Bearer ` + apiKey,
+"Content-Type": "application/json",
+},
+body: JSON.stringify(responseData)
+};
+const response = await fetch(requestURL, options)
+const data = await response.json()
+console.log(data)
+}
+console.log("Welcome to ChatGPT API")
+
+let response = prompt("Input your request here:")
+let createRequest ={
+"model":"gpt-5",
+"input": response
+}
+
+createResponse(createRequest)
