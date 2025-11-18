@@ -29,5 +29,5 @@ const createRequest ={
 "model":"gpt-5",
 "input": response
 }
-
+console.log()
 createResponse(createRequest)
