@@ -19,12 +19,13 @@ body: JSON.stringify(responseData)
 };
 const response = await fetch(requestURL, options)
 const data = await response.json()
-console.log(data)
+
+console.log(data.output[1].content[0].text)
 }
 console.log("Welcome to ChatGPT API")
 
-let response = prompt("Input your request here:")
-let createRequest ={
+const response = prompt("Input your request here:")
+const createRequest ={
 "model":"gpt-5",
 "input": response
 }
